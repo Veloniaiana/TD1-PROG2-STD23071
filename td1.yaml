@@ -1,0 +1,203 @@
+openapi: 3.1.0
+info:
+  title: TD1 - STD23071
+  version: '1.0.1'
+servers:
+  - url: https://localhost.std23071.com
+paths:
+  /books:
+    get:
+      parameters:
+        - name: bookName
+          in: query
+          description: Filter books by their name
+          required: false
+          schema:
+            type: string
+        - name: releaseDateStart
+          in: query
+          description: Start date
+          required: false
+          schema:
+            type: string
+            format: date
+        - name: releaseDateEnd
+          in: query
+          description: End date
+          required: false
+          schema:
+            type: string
+            format: date
+      responses:
+        200:
+          description: List of Books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Books'
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Books'
+      responses:
+        200:
+          description: List of created books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Books'
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Books'
+      responses:
+        200:
+          description: List of updated books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Books'
+    delete:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/BookIdentifier'
+      responses:
+        200:
+          description: List of deleted books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Books'
+  /authors:
+    get:
+      parameters:
+        - name: authorName
+          in: query
+          description: Filter authors by their name
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: List of Authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Authors'
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Authors'
+      responses:
+        200:
+          description: List of created authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Authors'
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Authors'
+      responses:
+        200:
+          description: List of updated authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Authors'
+    delete:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AuthorIdentifier'
+      responses:
+        200:
+          description: List of deleted authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Authors'
+components:
+  schemas:
+    Books:
+      type: object
+      properties:
+        id:
+          type: string
+        bookName:
+          type: string
+        author:
+          type: string
+        pageNumber:
+          type: integer
+        topic:
+          type: string
+          enum:
+            - ROMANCE
+            - COMEDY
+            - OTHER
+        releaseDate:
+          type: string
+          format: date
+    Authors:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        sex:
+          type: string
+          enum:
+            - M
+            - F          
+    BookIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
+    AuthorIdentifier:
+      type: object
+      properties:
+        id:
+          type: string
