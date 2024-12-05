@@ -11,12 +11,12 @@
     "url" : "https://localhost.std23071.com"
   } ],
   "paths" : {
-    "/books" : {
+    "/groups" : {
       "get" : {
         "parameters" : [ {
-          "name" : "bookName",
+          "name" : "groupName",
           "in" : "query",
-          "description" : "Filter books by their name",
+          "description" : "Filter groups by their name",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -24,7 +24,7 @@
             "type" : "string"
           }
         }, {
-          "name" : "releaseDateStart",
+          "name" : "startDate",
           "in" : "query",
           "description" : "Start date",
           "required" : false,
@@ -35,7 +35,7 @@
             "format" : "date"
           }
         }, {
-          "name" : "releaseDateEnd",
+          "name" : "endDate",
           "in" : "query",
           "description" : "End date",
           "required" : false,
@@ -48,13 +48,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "List of Books",
+            "description" : "List of groups",
             "content" : {
               "application/json" : {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/Books"
+                    "$ref" : "#/components/schemas/groups"
                   }
                 }
               }
@@ -69,7 +69,7 @@
               "schema" : {
                 "type" : "array",
                 "items" : {
-                  "$ref" : "#/components/schemas/Books"
+                  "$ref" : "#/components/schemas/groups"
                 }
               }
             }
@@ -77,13 +77,13 @@
         },
         "responses" : {
           "200" : {
-            "description" : "List of updated books",
+            "description" : "List of updated groups",
             "content" : {
               "application/json" : {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/Books"
+                    "$ref" : "#/components/schemas/groups"
                   }
                 }
               }
@@ -98,7 +98,7 @@
               "schema" : {
                 "type" : "array",
                 "items" : {
-                  "$ref" : "#/components/schemas/Books"
+                  "$ref" : "#/components/schemas/groups"
                 }
               }
             }
@@ -106,13 +106,13 @@
         },
         "responses" : {
           "200" : {
-            "description" : "List of created books",
+            "description" : "List of created groups",
             "content" : {
               "application/json" : {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/Books"
+                    "$ref" : "#/components/schemas/groups"
                   }
                 }
               }
@@ -133,13 +133,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "List of deleted books",
+            "description" : "List of deleted groups",
             "content" : {
               "application/json" : {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/Books"
+                    "$ref" : "#/components/schemas/groups"
                   }
                 }
               }
@@ -148,12 +148,12 @@
         }
       }
     },
-    "/authors" : {
+    "/students" : {
       "get" : {
         "parameters" : [ {
-          "name" : "authorName",
+          "name" : "studentName",
           "in" : "query",
-          "description" : "Filter authors by their name",
+          "description" : "Filter students by their name",
           "required" : false,
           "style" : "form",
           "explode" : true,
@@ -163,13 +163,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "List of Authors",
+            "description" : "List of Students",
             "content" : {
               "application/json" : {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/Authors"
+                    "$ref" : "#/components/schemas/Students"
                   }
                 }
               }
@@ -184,7 +184,7 @@
               "schema" : {
                 "type" : "array",
                 "items" : {
-                  "$ref" : "#/components/schemas/Authors"
+                  "$ref" : "#/components/schemas/Students"
                 }
               }
             }
@@ -192,13 +192,13 @@
         },
         "responses" : {
           "200" : {
-            "description" : "List of updated authors",
+            "description" : "List of updated Students",
             "content" : {
               "application/json" : {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/Authors"
+                    "$ref" : "#/components/schemas/Students"
                   }
                 }
               }
@@ -213,7 +213,7 @@
               "schema" : {
                 "type" : "array",
                 "items" : {
-                  "$ref" : "#/components/schemas/Authors"
+                  "$ref" : "#/components/schemas/Students"
                 }
               }
             }
@@ -221,13 +221,13 @@
         },
         "responses" : {
           "200" : {
-            "description" : "List of created authors",
+            "description" : "List of created Students",
             "content" : {
               "application/json" : {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/Authors"
+                    "$ref" : "#/components/schemas/Students"
                   }
                 }
               }
@@ -248,13 +248,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "List of deleted authors",
+            "description" : "List of deleted Students",
             "content" : {
               "application/json" : {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/Authors"
+                    "$ref" : "#/components/schemas/Students"
                   }
                 }
               }
@@ -266,32 +266,35 @@
   },
   "components" : {
     "schemas" : {
-      "Books" : {
+      "groups" : {
         "type" : "object",
         "properties" : {
           "id" : {
             "type" : "string"
           },
-          "bookName" : {
+          "groupName" : {
             "type" : "string"
           },
-          "author" : {
-            "type" : "string"
-          },
-          "pageNumber" : {
-            "type" : "integer"
-          },
-          "topic" : {
-            "type" : "string",
-            "enum" : [ "ROMANCE", "COMEDY", "OTHER" ]
-          },
-          "releaseDate" : {
+          "year" : {
             "type" : "string",
             "format" : "date"
+          },
+          "promotion" : {
+            "type" : "string",
+            "enum" : [ "G", "H", "J", "K" ]
+          },
+          "studentNumber" : {
+            "type" : "integer"
+          },
+          "students" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/groups_students"
+            }
           }
         }
       },
-      "Authors" : {
+      "Students" : {
         "type" : "object",
         "properties" : {
           "id" : {
@@ -303,10 +306,16 @@
           "sex" : {
             "type" : "string",
             "enum" : [ "M", "F" ]
+          },
+          "reference" : {
+            "type" : "string"
+          },
+          "group" : {
+            "type" : "string"
           }
         }
       },
-      "BookIdentifier" : {
+      "GroupIdentifier" : {
         "type" : "object",
         "properties" : {
           "id" : {
@@ -314,11 +323,19 @@
           }
         }
       },
-      "AuthorIdentifier" : {
+      "StudentIdentifier" : {
         "type" : "object",
         "properties" : {
           "id" : {
             "type" : "string"
+          }
+        }
+      },
+      "groups_students" : {
+        "type" : "object",
+        "properties" : {
+          "student" : {
+            "$ref" : "#/components/schemas/Students"
           }
         }
       }
