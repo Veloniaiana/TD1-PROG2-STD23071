@@ -307,6 +307,10 @@
             "type" : "string",
             "enum" : [ "M", "F" ]
           },
+          "birthdate" : {
+            "type" : "string",
+            "format" : "date"
+          },
           "reference" : {
             "type" : "string"
           },
