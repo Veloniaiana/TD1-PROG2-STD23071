@@ -7,8 +7,6 @@
   "servers" : [ {
     "url" : "https://virtserver.swaggerhub.com/HEIVELONIAINA/TD1Prog3/1.0.0",
     "description" : "SwaggerHub API Auto Mocking"
-  }, {
-    "url" : "https://localhost.std23071.com"
   } ],
   "paths" : {
     "/groups" : {
